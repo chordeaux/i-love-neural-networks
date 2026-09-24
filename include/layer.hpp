@@ -1,4 +1,2 @@
-class layer {
-    float *activations;
-    unsigned long size;
-};
+#include <Eigen/Dense>
+
