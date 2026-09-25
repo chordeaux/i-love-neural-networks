@@ -1,3 +1,6 @@
+#ifndef NETWORK_H
+#define NETWORK_H
+
 #include <layer.hpp>
 #include <vector>
 
@@ -11,3 +14,5 @@ class Network {
         Eigen::VectorXd forward_pass(Eigen::VectorXd input);
         void back_prop(double cost);
 };
+
+#endif

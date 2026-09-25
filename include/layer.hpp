@@ -1,3 +1,6 @@
+#ifndef LAYER_H
+#define LAYER_H
+
 #include <Eigen/Dense>
 
 class Layer {
@@ -11,3 +14,5 @@ class Layer {
     public:
         Eigen::VectorXd out(Eigen::MatrixXd in);
 };
+
+#endif
