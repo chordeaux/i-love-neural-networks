@@ -12,6 +12,7 @@ class Network {
     
     public:
         Eigen::VectorXd forward_pass(Eigen::VectorXd input);
+        //#TODO: properly define this (learn the algorithm properly to see what it starts with)
         void back_prop(double cost);
 };
 

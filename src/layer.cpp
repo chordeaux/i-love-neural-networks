@@ -1,5 +1,6 @@
 #include <layer.hpp>
 
-Eigen::VectorXd Layer::out(Eigen::MatrixXd in) {
+Eigen::VectorXd Layer::out(const Eigen::MatrixXd in) {
     return activation(weights * in + biases);
 }
+

@@ -21,6 +21,18 @@ FetchContent_MakeAvailable(Eigen)
 add_executable( i-love-neural-networks
     src/layer.cpp
     src/main.cpp
+    
     )
 
 target_include_directories(i-love-neural-networks PRIVATE include)
+target_link_libraries(i-love-neural-networks PRIVATE Eigen3::Eigen)
+
+add_executable( layer_test
+    src/layer.cpp
+    test/layer_test.cpp
+    
+    )
+
+target_include_directories(layer_test PRIVATE include)
+target_link_libraries(layer_test PRIVATE Eigen3::Eigen)
+
