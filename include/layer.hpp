@@ -10,21 +10,18 @@ class Layer {
         size_t dim_out;
         Eigen::MatrixXd weights;
         Eigen::VectorXd biases;
-        std::function<Eigen::VectorXd(const Eigen::VectorXd&)> activation;
-
-
+        Eigen::VectorXd (*activation)(const Eigen::VectorXd&);
 
     public:
-        //giving the function an alias so we dont have to write
-        using ActivationFn = std::function<Eigen::VectorXd(const Eigen::VectorXd&)>;
+
 
         Eigen::VectorXd out(Eigen::MatrixXd in);
-        Layer(size_t dim_in, size_t dim_out, Eigen::VectorXd (*p_activation(Eigen::VectorXd z)))
+        Layer(size_t dim_in, size_t dim_out, Eigen::VectorXd (*activation)(const Eigen::VectorXd&))
         :   dim_in(dim_in),
             dim_out(dim_out),
             weights(Eigen::MatrixXd::Random(dim_out, dim_in)),
             biases(Eigen::VectorXd::Zero(dim_out)),
-            activation(std::move(activation)) {
+            activation(activation) {
             }
             
 
