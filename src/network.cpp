@@ -1,7 +1,7 @@
 #include <network.hpp>
 #include <iostream>
 
-Eigen::VectorXd Network::forward_pass(Eigen::VectorXd input) {
+Eigen::VectorXd Network::forwardPass(Eigen::VectorXd input) {
     /*
     pseudocode:
     input = Input vector
@@ -17,7 +17,7 @@ Eigen::VectorXd Network::forward_pass(Eigen::VectorXd input) {
     return output;
 }
 
-void Network::back_prop(double cost) {
+void Network::backProp(double cost) {
 
 }
 
