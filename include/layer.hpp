@@ -6,8 +6,8 @@
 
 class Layer {
     private:
-        size_t dim_in;
-        size_t dim_out;
+        size_t dimIn;
+        size_t dimOut;
         Eigen::MatrixXd weights;
         Eigen::VectorXd biases;
         Eigen::VectorXd (*activation)(const Eigen::VectorXd&);
@@ -16,18 +16,18 @@ class Layer {
 
 
         Eigen::VectorXd out(Eigen::MatrixXd in);
-        Layer(size_t dim_in, size_t dim_out, Eigen::VectorXd (*activation)(const Eigen::VectorXd&))
-        :   dim_in(dim_in),
-            dim_out(dim_out),
-            weights(Eigen::MatrixXd::Random(dim_out, dim_in)),
-            biases(Eigen::VectorXd::Zero(dim_out)),
+        Layer(size_t dimIn, size_t dimOut, Eigen::VectorXd (*activation)(const Eigen::VectorXd&))
+        :   dimIn(dimIn),
+            dimOut(dimOut),
+            weights(Eigen::MatrixXd::Random(dimOut, dimIn)),
+            biases(Eigen::VectorXd::Zero(dimOut)),
             activation(activation) {
             }
             
 
     friend std::ostream& operator<<(std::ostream& os, const Layer& layer)
     {
-        os << "Layer(" << layer.dim_in << " -> " << layer.dim_out << ")\n"
+        os << "Layer(" << layer.dimIn << " -> " << layer.dimOut << ")\n"
            << "weights:\n" << layer.weights << "\n"
            << "biases:\n" << layer.biases;
         return os;
